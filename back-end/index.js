@@ -29,6 +29,11 @@ const tarefas = [
     id: crypto.randomUUID(), 
     text: 'Estudar Javascript',
     prazo: '10 dias'
+  },
+  {
+    id: crypto.randomUUID(), 
+    text: 'Estudar Desenvolvimento de Jogos',
+    prazo: '20 dias'
   }
 ]
 

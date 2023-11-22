@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex Simples javascript</title>
+</head>
+<body>
+  <main>
+    <h1>Lista de pokemons</h1>
+    <ul id="pokemons">
+      
+    </ul>
+  </main>
+  <script>
+    const listaTarefasHtml = document.getElementById('pokemons');
+    const Api = fetch('https://pokeapi.co/api/v2/pokemon?limit=120');
+    Api.then((response) => {
+      console.log(response);
+      return response.json()
+    }).then((data) => {
+      console.log(data);
+      data.results.map((pokemon, index) => {
+        listaTarefasHtml.insertAdjacentHTML('beforeend', `<li>
+          <p>Nome: ${pokemon.name}</p>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png"/>
+        </li>`)
+      })
+    })
+  </script>
+</body>
+</html>
