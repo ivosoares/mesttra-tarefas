@@ -2,6 +2,7 @@
 // importamos o express
 const express = require('express');
 const crypto = require('crypto');
+// importo o modulo de cors
 const cors = require('cors');
 
 // inicializa um servidor web com express

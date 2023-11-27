@@ -37,21 +37,9 @@ const renderOne = (pokemon) => {
       <h3>${pokemon.name}</h3>
       <h4>Peso: ${pokemon.weight}</h4>
       <p>Tipo:</p>
-      ${pokemon.types.map(tipoPokemon => { 
-        if(tipoPokemon.type.name == 'poison') {
-          return `
-          <h2 id="poison">
-              ${tipoPokemon.type.name}
-          </h2>
-          `
-        }else {
-          return `
-          <h2>
-              ${tipoPokemon.type.name}
-          </h2>
-          `
-        }
-        })}
+      ${pokemon.types.map(tipoPokemon => {
+        return tipoPokemon.type.name
+      }).join('/')}
     </li>
   `)
 }
