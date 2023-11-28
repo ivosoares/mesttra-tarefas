@@ -56,6 +56,28 @@ router.delete('/delete/:id', (req, res) => {
 })
 
 
+// [PUT] - Atualiza um produto pre cadastrado
+router.put('/edit/:id', (req, res) => {
+  // recebo o id via param
+  const id = req.params.id;
+
+  // recebo o objeto com os dados atualizados do produto
+  const editProduct = req.body;
+
+  // Procuro em qual posicao esta o produto pelo seu id;
+  const index = products.findIndex(product => product.id == id);
+
+  products[index] = {
+    ...products[index],
+    ...editProduct
+  }
+
+  console.log(products[index]);
+
+  res.send('Produto atualizado com sucesso');
+
+})
+
 
 // exportamos o router para ser usado no index
 module.exports = router;
