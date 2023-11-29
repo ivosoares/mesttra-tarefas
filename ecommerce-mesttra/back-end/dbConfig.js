@@ -10,11 +10,11 @@ const pool = new Pool({
   port: 5432
 });
 
-const teste = async() => {
-  const result = await pool.query('SELECT * FROM products');
-  console.log(result.rows[0]);
-}
-teste();
+// const teste = async() => {
+//   const result = await pool.query('SELECT * FROM products');
+//   console.log(result.rows[0]);
+// }
+// teste();
 
 //exporto a minha constante pool
 module.exports = pool;
