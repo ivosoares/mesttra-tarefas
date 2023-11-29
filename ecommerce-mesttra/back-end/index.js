@@ -2,12 +2,15 @@
 
 //importamos o express
 const express = require('express');
+const cors = require('cors');
 // importo as rotas da aplicacao;
 const productRouter = require('./routes/routes');
 
 // inicializo a minha instancia do express;
 const app = express();
 
+
+app.use(cors());
 // habilito o midleware de json do express;
 app.use(express.json());
 

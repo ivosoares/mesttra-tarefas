@@ -8,5 +8,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <section>
+    <form id="myForm" onsubmit="submitForm(event)">      
+      <input type="text" name="name" id="name" placeholder="Digite o nome do produto">
+      <input type="text" name="category" id="category" placeholder="Digite a categoria do produto">
+      <input type="text" name="price" id="price" placeholder="Digite o preco do produto">
+      <button type="submit">cadastrar</button>
+    </form>
+    <ul id="lista"></ul>
+  </section>
+  <script src="./scripts.js"></script>
 </body>
 </html>

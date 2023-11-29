@@ -13,23 +13,39 @@ const products = []
 
 // [GET] - Rota que lista todos os produtos
 router.get('/', async (req, res) => {
-  const productsDB = await pool.query('SELECT * FROM products');
-  res.send(productsDB.rows);
+  try {
+    const productsDB = await pool.query('SELECT * FROM products');
+    res.send(productsDB.rows);
+  } catch (error) {
+    console.error('Erro ao buscar o produto', error);
+    res.status(500).json({
+      message: 'Erro durante a busca',
+      data: error
+    })
+  }
 })
 
 // [GET] - Rota que retorna um produto por id
 router.get('/:id', async (req, res) => {
   // recebo o id via req params
   const id = req.params.id;
-
-  const { rows } = await pool.query('SELECT * FROM products WHERE id = $1', [id])
-
-  // verifico se existe o produto, se nao existir devolvo um 404 com a mensagem "Produto nao encontrado"
-  if(rows.length === 0) {
-    res.status(404).send('Produto nao encontrado');
+  try {
+    const { rows } = await pool.query('SELECT * FROM products WHERE id = $1', [id])
+    // verifico se existe o produto, se nao existir devolvo um 404 com a mensagem "Produto nao encontrado"
+    if(rows.length === 0) {
+      res.status(404).send('Produto nao encontrado');
+    } else {
+      // se encontrar o produto devolve o produto
+      res.send(rows);
+    }
+  } catch (error) {
+    console.error('Erro ao buscar o produto', error);
+    res.status(500).json({
+      message: 'Erro durante a busca',
+      data: error
+    })
   }
-  // se encontrar o produto devolve o produto
-  res.send(rows);
+
 })
 
 // CRUD (CREATE - POST)(READ - GET)(UPDATE - PUT)(DELETE - DELETE)
