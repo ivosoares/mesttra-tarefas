@@ -5,18 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-commerce Mesttra</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Importação do Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-  <section>
-    <form id="myForm" onsubmit="submitForm(event)">      
-      <input type="text" name="name" id="name" placeholder="Digite o nome do produto">
-      <input type="text" name="category" id="category" placeholder="Digite a categoria do produto">
-      <input type="text" name="price" id="price" placeholder="Digite o preco do produto">
-      <button type="submit">cadastrar</button>
+<body class="bg-gray-100 font-sans">
+
+  <section class="container mx-auto p-4">
+    <form id="myForm" onsubmit="submitForm(event)" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          Nome do Produto
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Digite o nome do produto">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+          Categoria do Produto
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="category" type="text" placeholder="Digite a categoria do produto">
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="price">
+          Preço do Produto
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="price" type="text" placeholder="Digite o preço do produto">
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Cadastrar
+        </button>
+      </div>
     </form>
-    <ul id="lista"></ul>
+    
+    <ul id="lista" id="lista" class="flex flex-wrap list-none"></ul>
   </section>
+
   <script src="./scripts.js"></script>
 </body>
 </html>

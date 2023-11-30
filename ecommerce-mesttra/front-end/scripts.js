@@ -9,6 +9,7 @@ const nameInput = document.querySelector('#name')
 const categoryInput = document.querySelector('#category')
 const priceInput = document.querySelector('#price')
 
+// GET
 const getProducts = async () => {
   lista.innerHTML = '';
   
@@ -17,7 +18,14 @@ const getProducts = async () => {
 
   products.map((product)=> {
     lista.insertAdjacentHTML('beforeend', `
-      <li>${product.name}</li>
+    <li class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4 mb-4">
+        <div class="bg-white shadow-md rounded-md p-4">
+          <h2 class="text-xl font-semibold mb-2">${product.name}</h2>
+          <p class="text-gray-600">Categoria: ${product.category}</p>
+          <p class="text-gray-800 font-bold">Preço: R$ ${product.price}</p>
+          <button>Excluir</button>
+        </div>
+    </li>
     `)
   })
 }
@@ -47,5 +55,7 @@ const submitForm = async (event) => {
   alert(`produto ${data.data[0].name} Cadastrado`);
   getProducts();
 }
+
+// DELETE
 
 getProducts();
